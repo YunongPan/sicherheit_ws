@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_box_filter_front">
+      <remap from="scan" to="laserscan/front" />
+      <remap from="scan_filtered" to="laserscan_box_filtered/front"  />
+  </node>
+
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_box_filter_rear">
+      <remap from="scan" to="laserscan/rear" />
+      <remap from="scan_filtered" to="laserscan_box_filtered/rear"  />
+  </node>
+
+  <include file="$(find laser_filters)/launch/demonstrator_range_filter.launch"/>
+  
+  <node pkg="demonstrator_preprocessing" type="demonstrator_preprocessing.py" name="demonstrator_preprocessing"/>
+  
+  <node pkg="demonstrator_preprocessing" type="demonstrator_speed_control.py" output="screen" name="demonstrator_speed_control">
+    <param name="maximum_speed" value="1.0"/> 
+  </node>
+
+</launch>
