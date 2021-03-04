@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+  <!-- Start environmental detection. -->
   <param name="countdown_seconds" value="10"/> 
   <node pkg="demonstrator_preprocessing" type="environmental_detection_front.py" name="environmental_detection_front" output="screen"/>
   <node pkg="demonstrator_preprocessing" type="environmental_detection_rear.py" name="environmental_detection_rear" output="screen"/>
