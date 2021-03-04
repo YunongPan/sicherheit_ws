@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <node pkg="demonstrator_preprocessing" type="environmental_detection_front.py" name="environmental_detection_front" output="screen">
-    <!--<remap from="laserscan/front" to="laserscan_gazebo/front" />-->
-  </node>
-  <node pkg="demonstrator_preprocessing" type="environmental_detection_rear.py" name="environmental_detection_rear" output="screen">
-    <!--<remap from="laserscan/rear" to="laserscan_gazebo/rear" />-->
-  </node>
+  <param name="countdown_seconds" value="10"/> 
+  <node pkg="demonstrator_preprocessing" type="environmental_detection_front.py" name="environmental_detection_front" output="screen"/>
+  <node pkg="demonstrator_preprocessing" type="environmental_detection_rear.py" name="environmental_detection_rear" output="screen"/>
 </launch>

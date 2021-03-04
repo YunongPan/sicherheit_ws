@@ -5,11 +5,9 @@
       <remap from="scan_filtered" to="laserscan_filtered/front"  />
       <rosparam command="load" file="$(find laser_filters)/config/demonstrator_range_filter_front.yaml" />-->
   </node>
-
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_range_filter_rear">
       <remap from="scan" to="laserscan_box_filtered/rear" />
       <remap from="scan_filtered" to="laserscan_filtered/rear"  />
       <rosparam command="load" file="$(find laser_filters)/config/demonstrator_range_filter_rear.yaml" />-->
   </node>
-
 </launch>

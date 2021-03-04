@@ -1,10 +1,8 @@
 #!/usr/bin/env python
-
 import sys
 import rospy
 from std_msgs.msg import Int16
 from ur_msgs.srv import SetSpeedSliderFraction
-
 
 current_level = 1
 count = 0
@@ -17,23 +15,23 @@ def testInfoCallback(msg):
   if msg == current_level:
     count = 0
     potential_level = 0
-    print msg, count, current_level, potential_level
     
   else:
     if potential_level == 0:
       potential_level = msg
       count = 1
-      print msg, count, current_level, potential_level
+
     else:
       if msg == potential_level:
         count = count + 1
-        print msg, count, current_level, potential_level
         if count > 4:
           rospy.loginfo("Speed changed.")
-          print potential_level
-
           speed_level_str = str(potential_level)
           if speed_level_str == "data: 2":
+            print "The speed of the robot is set to 30% of the maximum speed."
+            current_level = potential_level
+            count = 0
+            potential_level = 0
             rospy.wait_for_service('/ur_hardware_interface/set_speed_slider')
             try:
               add_SetSpeedSliderFraction = rospy.ServiceProxy('/ur_hardware_interface/set_speed_slider', SetSpeedSliderFraction)
@@ -43,6 +41,10 @@ def testInfoCallback(msg):
               print "Service call failed: %s"%e
 
           elif speed_level_str == "data: 1":
+            print "The speed of the robot is set to 0."
+            current_level = potential_level
+            count = 0
+            potential_level = 0
             rospy.wait_for_service('/ur_hardware_interface/set_speed_slider')
             try:
               add_SetSpeedSliderFraction = rospy.ServiceProxy('/ur_hardware_interface/set_speed_slider', SetSpeedSliderFraction)
@@ -51,7 +53,11 @@ def testInfoCallback(msg):
             except rospy.ServiceException, e:
               print "Service call failed: %s"%e
 
-          elif speed_level_str == "data: 1":
+          elif speed_level_str == "data: 3":
+            print "The speed of the robot is set to 100% of the maximum speed."
+            current_level = potential_level
+            count = 0
+            potential_level = 0
             rospy.wait_for_service('/ur_hardware_interface/set_speed_slider')
             try:
               add_SetSpeedSliderFraction = rospy.ServiceProxy('/ur_hardware_interface/set_speed_slider', SetSpeedSliderFraction)
@@ -63,17 +69,11 @@ def testInfoCallback(msg):
           else:
             pass
 
-
-          current_level = potential_level
-          count = 0
-          potential_level = 0
-        else:
+        else: # count < 5, next loop
           pass
-      else:        
+      else:        # msg is not potential_level
         potential_level = msg
         count = 1
-        print msg, count, current_level, potential_level
-
 
 def speed_subscriber():
   rospy.init_node('demonstrator_speed_control')

@@ -101,7 +101,7 @@ class Demonstrator():
       
 
   def shutdownhook(self):
-    self.ctrl_c=True
+    self.ctrl_c = True
 
 if __name__=='__main__':
   rospy.init_node('demonstrator_preprocessing')
