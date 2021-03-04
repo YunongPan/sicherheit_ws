@@ -65,7 +65,7 @@ Workshop for  security concept.
 Path: `~/sicherheit_ws/src/demonstrator_preprocessing/launch/environmental_detection.launch`  
   
 - **/countdown_seconds (default: 10 s)**
-  - The countdown time used to leave away from the demonstrator before starting the environment detection.
+  - The time used to leave away from the demonstrator before starting the environment detection.
     
 ### The following parameters can be set in `demonstrator_filter_total.launch`
 Path: `~/sicherheit_ws/src/laser_filters/launch/demonstrator_filter_total.launch`  
