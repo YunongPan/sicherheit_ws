@@ -8,8 +8,20 @@ Workshop for  security concept.
   
 	`git clone https://github.com/YunongPan/irt_ws.git`  
   
-2. Install dependencies.  
+2. Install submodules.  
   
-	`cd ~/irt_ws`  
+	`cd ~/sicherheit_ws/src/sick_tim`  
+  
+	`git submodule update --init --recursive`  
+  
+3. Install dependencies.  
+  
+	`cd ~/sicherheit_ws`  
   
 	`rosdep install --from-paths src --ignore-src -r -y`  
+  
+4. Build the workspace.  
+  
+	`catkin_make`  
+  
+## Testing
