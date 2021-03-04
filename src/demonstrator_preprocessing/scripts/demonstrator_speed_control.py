@@ -69,9 +69,10 @@ def testInfoCallback(msg):
           else:
             pass
 
-        else: # count < 5, next loop
+        else:
           pass
-      else:        # msg is not potential_level
+
+      else:
         potential_level = msg
         count = 1
 
