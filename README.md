@@ -6,7 +6,7 @@ Workshop for  security concept.
   
 	`cd ~`  
   
-	`git clone https://github.com/YunongPan/irt_ws.git`  
+	`git clone https://github.com/YunongPan/sicherheit_ws.git`  
   
 2. Install submodules.  
   
