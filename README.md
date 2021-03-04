@@ -49,7 +49,7 @@ Workshop for  security concept.
   
 	`roslaunch demonstrator_preprocessing environmental_detection.launch`  
   
-  	*Note: After starting this process, there will be a 10-second countdown. (It can be adjusted if you think it is too long/short. Please see section **Parameter**.)  Please use this time to stay away from the demonstrator to 2 meters away. After the countdown is over, an environmental detection of about 10 seconds will be started. After this process is completely finished, you may go back to the Demonstrator and contine to the next step.*  
+  	*Note: After starting this process, there will be a 10-second countdown. (It can be adjusted if you think it is too long/short. Please see section **Parameter**.)  Please use this time to be more than 2 meters away from the demonstrator. After the countdown is over, an environmental detection of about 10 seconds will be started. After this process is completely finished, you may go back to the Demonstrator and contine to the next step.*  
   
 	*If someone stays within 2 meters during the environmental detection, he/she may also be recognized as a stationary object and be filtered out, which may reduce the effectiveness of the program.*  
   	
@@ -57,5 +57,18 @@ Workshop for  security concept.
   
 	`roslaunch laser_filters demonstrator_filter_total.launch`  
   
+  	*Note: Please keep the surrounding environment unchanged, especially within 2 meters. If the environment has changed, (for example: the cabel of the interface is moved, or the table and chairs nearby are moved) please use `ctrl + c` to stop the process and restart step 5 and step 6.*  
   
-
+## Parameter
+  
+### The following parameters can be set in `environmental_detection.launch`.  
+Path: `~/sicherheit_ws/src/demonstrator_preprocessing/launch/environmental_detection.launch`  
+  
+- **/countdown_seconds (default: 10 s)**
+  - The countdown time used to leave away from the demonstrator before starting the environment detection.
+    
+### The following parameters can be set in `demonstrator_filter_total.launch`
+Path: `~/sicherheit_ws/src/laser_filters/launch/demonstrator_filter_total.launch`  
+  
+- **/demonstrator_speed_control/maximum_speed (default: 1.0 (100%))**
+  - The speed of the robot when it is running without danger.
