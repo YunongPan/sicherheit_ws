@@ -43,8 +43,7 @@ class Demonstrator():
     laser_front.ranges = [100 if x < 0.1 else x for x in laser_front.ranges]
     laser_rear.ranges = [100 if math.isnan(x) else x for x in laser_rear.ranges]
     laser_rear.ranges = [100 if x < 0.1 else x for x in laser_rear.ranges]
-    
-    
+        
     self.nearest_point_range_front = min(laser_front.ranges)
     self.nearest_point_range_rear = min(laser_rear.ranges)
     if self.nearest_point_range_front < self.nearest_point_range_rear:
@@ -61,8 +60,6 @@ class Demonstrator():
   def read_laser(self):
     level_pub = rospy.Publisher('/distance_level', Int16, queue_size = 10)
     while not self.ctrl_c:
-
-
       try:
         if self.nearest_point_range_front < self.nearest_point_range_rear:
           (trans,rot) = self.listener.lookupTransform('/chassis', '/sick_front', rospy.Time(0))
@@ -78,8 +75,6 @@ class Demonstrator():
 
       except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
           continue
-   
-      
       
       if self.nearest_point_to_chassis < 2 and self.nearest_point_to_chassis >= 1.65:
         level_msg = 2
@@ -99,7 +94,6 @@ class Demonstrator():
 
       time.sleep(0.1)
       
-
   def shutdownhook(self):
     self.ctrl_c = True
 
@@ -112,3 +106,4 @@ if __name__=='__main__':
 
   except rospy.ROSInterruptException:
     pass
+
