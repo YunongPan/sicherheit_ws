@@ -71,4 +71,4 @@ Path: `~/sicherheit_ws/src/demonstrator_preprocessing/launch/environmental_detec
 Path: `~/sicherheit_ws/src/laser_filters/launch/demonstrator_filter_total.launch`  
   
 - **/demonstrator_speed_control/maximum_speed (default: 1.0 (100%))**
-  - The speed of the robot when it is running without danger. Same as the robot speed displayed on interface.
+  - The speed of the robot when it is running without danger. Same as the robot speed displayed on the interface.
