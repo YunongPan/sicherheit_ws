@@ -57,7 +57,7 @@ Workshop for  security concept.
   
 	`roslaunch laser_filters demonstrator_filter_total.launch`  
   
-  	*Note: Please keep the surrounding environment unchanged, especially within 2 meters. If the environment has changed, (for example: the cabel of the interface is moved, or the table and chairs nearby are moved) please use `ctrl + c` to stop the process and restart step 5 and step 6.*  
+  	*Note: Please keep the surrounding environment unchanged, especially within 2 meters. If the environment has changed, (for example: the cabel of the interface is moved, or the table and chairs nearby are moved) please use* `ctrl + c` *to stop the process and repeat step 5 and step 6.*  
   
 ## Parameter
   
@@ -71,4 +71,4 @@ Path: `~/sicherheit_ws/src/demonstrator_preprocessing/launch/environmental_detec
 Path: `~/sicherheit_ws/src/laser_filters/launch/demonstrator_filter_total.launch`  
   
 - **/demonstrator_speed_control/maximum_speed (default: 1.0 (100%))**
-  - The speed of the robot when it is running without danger.
+  - The speed of the robot when it is running without danger. Same as the robot speed displayed on interface.
