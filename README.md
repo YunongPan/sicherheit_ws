@@ -49,8 +49,13 @@ Workshop for  security concept.
   
 	`roslaunch demonstrator_preprocessing environmental_detection.launch`  
   
-  	*Note: After starting this process, there will be a 10-second countdown. (It can be adjusted if you think it is too long/short. Please see **Parameter**.)  Please use this time to stay away from the demonstrator to 2 meters away. After the countdown is over, an environmental detection of about 10 seconds will be started. After this process is completely finished, you may go back to the Demonstrator and contine to the next step.*  
+  	*Note: After starting this process, there will be a 10-second countdown. (It can be adjusted if you think it is too long/short. Please see section **Parameter**.)  Please use this time to stay away from the demonstrator to 2 meters away. After the countdown is over, an environmental detection of about 10 seconds will be started. After this process is completely finished, you may go back to the Demonstrator and contine to the next step.*  
   
 	*If someone stays within 2 meters during the environmental detection, he/she may also be recognized as a stationary object and be filtered out, which may reduce the effectiveness of the program.*  
+  	
+6. Start speed control.
+  
+	`roslaunch laser_filters demonstrator_filter_total.launch`  
+  
   
 
